@@ -1,0 +1,63 @@
+# Referência local: nenhum sistema existente passa a usar isto automaticamente.
+version: 1
+modelos_env: ~/.config/inema/modelos.env
+global:
+  motor_preferido: codex
+  nivel_padrao: executor
+  alternativas: [claude, codex]
+  timeout: 180
+  cooldown: 300
+motores:
+  codex:
+    habilitado: true
+    tipo: assinatura
+    binario: ~/.npm-global/bin/codex
+    conta_env: ~/.config/inema/codex-conta.env
+    quota_pool: codex-principal
+    niveis: {} # Vazio: herda modelo e esforço do modelos.env central.
+  claude:
+    habilitado: true
+    tipo: assinatura
+    binario: ~/.local/bin/claude
+    quota_pool: claude-principal
+    niveis: {}
+  openrouter:
+    habilitado: false
+    tipo: api
+    quota_pool: openrouter-principal
+# Perfil explícito é uma exceção documentada à escolha central.
+perfis:
+  codex-principal:
+    motor: codex
+    modelo: gpt-6.1-sol
+    esforco: medium
+  claude-alternativo:
+    motor: claude
+    modelo: claude-opus-5-5
+    esforco: low
+projetos:
+  demonstracao:
+    etapas:
+      padrao:
+        nivel: executor
+      roteiro:
+        perfil: codex-principal
+        alternativa: claude-alternativo
+      critica:
+        perfil: claude-alternativo
+        alternativa: codex-principal
+  # Consumidor real: o zelador (~/projetos/zelador) explica em português simples cada proposta da pauta
+  # semanal (até 3 chamadas por semana, itens já explicados ficam em cache). Nível menor: texto curto.
+  zelador:
+    etapas:
+      explicar:
+        nivel: menor
+  # Somente exemplos: ainda não integrados aos projetos reais.
+  consumidor-python:
+    etapas:
+      roteiro:
+        nivel: executor
+  consumidor-cli:
+    etapas:
+      critica:
+        nivel: topo
