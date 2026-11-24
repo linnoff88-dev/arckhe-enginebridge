@@ -28,7 +28,7 @@ class BridgeTests(unittest.TestCase):
         self.tmp = tempfile.TemporaryDirectory()
         self.root = Path(self.tmp.name)
         self.env = self.root / 'models.env'
-        self.env.write_text('INEMA_CODEX_EXECUTOR=central-codex\nINEMA_CODEX_EXECUTOR_EFFORT=medium\nINEMA_CLAUDE_EXECUTOR=central-claude\nINEMA_CLAUDE_EXECUTOR_EFFORT=low\n')
+        self.env.write_text('ARCKHÉ_CODEX_EXECUTOR=central-codex\nARCKHÉ_CODEX_EXECUTOR_EFFORT=medium\nARCKHÉ_CLAUDE_EXECUTOR=central-claude\nARCKHÉ_CLAUDE_EXECUTOR_EFFORT=low\n')
         self.cfg = yaml.safe_load((ROOT / 'config/enginebridge.yaml').read_text())
         self.cfg['modelos_env'] = str(self.env)
         self.cfg['motores']['codex'].pop('conta_env')

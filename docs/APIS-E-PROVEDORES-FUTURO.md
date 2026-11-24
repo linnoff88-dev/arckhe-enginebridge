@@ -7,7 +7,7 @@ Registrado a pedido do Nei em 17/11/2026. **Ponto para mais adiante; não implem
 - `ia_motor.py` (método do WiFi, `~/projetos/wifi/provedores-independentes/`) já tem adaptadores de API Anthropic (Messages), OpenAI (Responses) e OpenRouter (Chat Completions).
 - Gate atual: `api.autorizada` + texto `autorizacao` + `etapas_autorizadas`; autorização Anthropic não libera OpenAI/OpenRouter.
 - Em uso real só no gitbombando (API Anthropic, cinco etapas autorizadas). OpenAI e OpenRouter: só simulados.
-- `modelos.env` já declara `INEMA_OPENROUTER_<NIVEL>` (IDs `anthropic/...`).
+- `modelos.env` já declara `ARCKHÉ_OPENROUTER_<NIVEL>` (IDs `anthropic/...`).
 
 Portanto o executor de API existe; o que falta é **política**, não transporte.
 

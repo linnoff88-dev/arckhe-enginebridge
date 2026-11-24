@@ -22,7 +22,7 @@ A evidência local comprova componentes úteis e integrações testadas; não co
 
 **O modelo recomendado separa restrições, seleção e execução.**
 
-`MODELOS.md` e `modelos.env` continuam como referências existentes para níveis e modelos. EngineBridge acrescenta vínculos entre roles e esses níveis, restrições e identidade operacional; não mantém outra tabela concorrente de modelos. Tradução permanece delegada ao `inema-traduz`.
+`MODELOS.md` e `modelos.env` continuam como referências existentes para níveis e modelos. EngineBridge acrescenta vínculos entre roles e esses níveis, restrições e identidade operacional; não mantém outra tabela concorrente de modelos. Tradução permanece delegada ao `ARCKHÉ-traduz`.
 
 A resolução proposta é:
 
@@ -33,7 +33,7 @@ A resolução proposta é:
 
 Uma fixação só pode ser removida por alteração explícita autorizada. Se ficar proibida, o job bloqueia ou segue uma alternativa já declarada; nunca é “desfixado” silenciosamente. Política desconhecida ou inválida não abre caminhos.
 
-Por exemplo, o comando conceitual `preferir-Claude` muda a ordem dos candidatos de crítico, planejador e executor não fixados, preservando modelos adequados a cada role. Imagem continua no caminho específico Codex `image_gen`; tradução continua no `inema-traduz`; uma etapa fixada em Codex permanece fixada. Se a conta Codex for suspensa, essas etapas bloqueiam quando não houver alternativa expressamente permitida.
+Por exemplo, o comando conceitual `preferir-Claude` muda a ordem dos candidatos de crítico, planejador e executor não fixados, preservando modelos adequados a cada role. Imagem continua no caminho específico Codex `image_gen`; tradução continua no `ARCKHÉ-traduz`; uma etapa fixada em Codex permanece fixada. Se a conta Codex for suspensa, essas etapas bloqueiam quando não houver alternativa expressamente permitida.
 
 Para jobs existentes, a preferência global passa a valer no próximo job; migração de job ativo exige operação explícita. Bloqueios urgentes valem na próxima admissão, inclusive para chamadas enfileiradas, sem cancelar ações já admitidas. Essa fronteira precisa ser documentada.
 

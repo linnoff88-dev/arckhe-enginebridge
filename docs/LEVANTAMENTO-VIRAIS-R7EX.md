@@ -28,7 +28,7 @@ Os virais **já seguem o caminho C**. Restos do Claude: comentários e mensagens
 
 | Etapa | Onde | Tipo | Hoje | Portável? |
 |---|---|---|---|---|
-| ficha (pesquisa + escrita + portões) | inemaccbot, fase `agent`, `prompts/bot-ficha.md`, perfil topo/high | **agente** | motor padrão do inemaccbot = Claude | Parcial: o prompt é quase neutro (manda ler `PADRAO.md` e `skill/SKILL.md` como arquivos, sem nomes de ferramenta do Claude), mas exige busca na web, shell (`yt-dlp`, `r7ex.py checar/plano`) e escrita de arquivos |
+| ficha (pesquisa + escrita + portões) | ARCKHÉccbot, fase `agent`, `prompts/bot-ficha.md`, perfil topo/high | **agente** | motor padrão do ARCKHÉccbot = Claude | Parcial: o prompt é quase neutro (manda ler `PADRAO.md` e `skill/SKILL.md` como arquivos, sem nomes de ferramenta do Claude), mas exige busca na web, shell (`yt-dlp`, `r7ex.py checar/plano`) e escrita de arquivos |
 | plano / crítico de viralidade | `r7ex.py:402–409` | texto/JSON | **`claude -p --allowedTools Read` fixo no código**; Codex só com `R7X_CRITICO=codex`; fora do `ia_motor.py` | **Sim, se o script anexar a ficha ao pedido** em vez de pedir ao modelo para ler |
 | imagens (abertura + quadros) | `r7ex.py:531` | capacidade `image_gen` | Codex exclusivo (`--dangerously-bypass-approvals-and-sandbox`) | Não, por regra (imagem = Codex) |
 | revisão visual da folha | `producao/producao.py` → `ia_motor.py` | visão | Codex gpt-6.1-sol/medium | Sim para motor com visão; no Claude exige anexar a imagem |

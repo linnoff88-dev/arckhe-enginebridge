@@ -7,7 +7,7 @@
 - Exemplos Python e shell resolveram a política sem inferência.
 - Revisão independente final do guia: aprovado, nota 9/10, sem defeitos.
 - Guias PT/EN/ES: 1440, 390 e 360 px, sem overflow, imagens ou âncoras quebradas e sem erros JS; tema claro/escuro passou.
-- Detector estático visual apontou heurísticas do template (fontes, sombra, tamanhos) e hífens dos comandos; preservada a identidade INEMA e conferida a renderização real.
+- Detector estático visual apontou heurísticas do template (fontes, sombra, tamanhos) e hífens dos comandos; preservada a identidade ARCKHÉ e conferida a renderização real.
 - Portal: 13 testes, build Next com Webpack e TypeScript passaram. Turbopack não aceitou dependências ligadas por symlink no worktree; limitação registrada no WiFi.
 - Content-base: 41 testes passaram; base resultante 19.728 itens, incluindo EngineBridge, sem remover IDs anteriores.
 

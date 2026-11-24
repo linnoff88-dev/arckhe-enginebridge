@@ -1,6 +1,6 @@
 # Referência local: nenhum sistema existente passa a usar isto automaticamente.
 version: 1
-modelos_env: ~/.config/inema/modelos.env
+modelos_env: ~/.config/ARCKHÉ/modelos.env
 global:
   motor_preferido: codex
   nivel_padrao: executor
@@ -12,7 +12,7 @@ motores:
     habilitado: true
     tipo: assinatura
     binario: ~/.npm-global/bin/codex
-    conta_env: ~/.config/inema/codex-conta.env
+    conta_env: ~/.config/ARCKHÉ/codex-conta.env
     quota_pool: codex-principal
     niveis: {} # Vazio: herda modelo e esforço do modelos.env central.
   claude:

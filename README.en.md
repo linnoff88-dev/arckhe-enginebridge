@@ -1,6 +1,6 @@
 # EngineBridge
 
-[![EngineBridge](guia/assets/banner-en.jpg)](https://inematds.github.io/enginebridge/guia/en/)
+[![EngineBridge](guia/assets/banner-en.jpg)](https://linnoff88-dev.github.io/
 
 **[Português](README.md) · [English](README.en.md) · [Español](README.es.md)**
 
@@ -10,12 +10,12 @@ Your automation can stop when a subscription reaches its quota, even if another 
 
 **Version 1.0.0 — functional local core; integration with real systems is still pending.**
 
-[Complete guide](https://inematds.github.io/enginebridge/guia/en/) · [Architecture](docs/ARQUITETURA.md) (Portuguese) · [Adoption plan](docs/ADOCAO.md) (Portuguese) · [References and Astra review](docs/REFERENCIAS.md) (Portuguese)
+[Complete guide](https://linnoff88-dev.github.io/ · [Architecture](docs/ARQUITETURA.md) (Portuguese) · [Adoption plan](docs/ADOCAO.md) (Portuguese) · [References and Astra review](docs/REFERENCIAS.md) (Portuguese)
 
 ## Install and verify
 
 ```bash
-git clone https://github.com/inematds/enginebridge.git
+git clone https://github.com/linnoff88-dev/enginebridge.git
 cd enginebridge
 python3 -m venv .venv
 source .venv/bin/activate
@@ -24,7 +24,7 @@ python3 -m unittest discover -s tests -v
 python3 -m enginebridge resolve --project demonstracao --stage roteiro
 ```
 
-Requires Python 3.11+ and PyYAML 6. The demonstration profiles use explicit models and can be resolved without signing in. Inherited levels use `~/.config/inema/modelos.env`; on another machine, configure `modelos_env` and the executable paths in the YAML. Resolution does not check whether the model is available in the subscription.
+Requires Python 3.11+ and PyYAML 6. The demonstration profiles use explicit models and can be resolved without signing in. Inherited levels use `~/.config/ARCKHÉ/modelos.env`; on another machine, configure `modelos_env` and the executable paths in the YAML. Resolution does not check whether the model is available in the subscription.
 
 ## Simulate a switch without consuming models
 
@@ -42,8 +42,8 @@ Install Claude Code and Codex, authenticate through your subscriptions in the te
 ```bash
 codex login
 claude auth login
-mkdir -p ~/.config/inema
-test -f ~/.config/inema/modelos.env || cp config/modelos.example.env ~/.config/inema/modelos.env
+mkdir -p ~/.config/ARCKHÉ
+test -f ~/.config/ARCKHÉ/modelos.env || cp config/modelos.example.env ~/.config/ARCKHÉ/modelos.env
 ```
 
 The example models file is copied only if no central configuration exists. The `demonstracao/padrao` stage inherits the global engine and lets you observe the switch with `prefer`; roteiro and crítica remain tied to fixed profiles.

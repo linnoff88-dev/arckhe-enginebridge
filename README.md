@@ -1,4 +1,4 @@
-﻿# EngineBridge
+# EngineBridge
 
 <div align="center">
   <img src="capa/logo.svg" alt="Arckhé AI" height="48" />
@@ -6,7 +6,7 @@
 </div>
 
 
-[![EngineBridge](guia/assets/banner.jpg)](https://inematds.github.io/enginebridge/guia/)
+[![EngineBridge](guia/assets/banner.jpg)](https://linnoff88-dev.github.io/
 
 **[PortuguÃªs](README.md) Â· [English](README.en.md) Â· [EspaÃ±ol](README.es.md)**
 
@@ -16,12 +16,12 @@ Sua automaÃ§Ã£o pode parar quando uma assinatura atinge a cota, mesmo tendo 
 
 **VersÃ£o 1.0.0 â€” nÃºcleo local funcional; integraÃ§Ã£o com os sistemas reais ainda pendente.**
 
-[Guia completo](https://inematds.github.io/enginebridge/guia/) Â· [Arquitetura](docs/ARQUITETURA.md) Â· [Plano de adoÃ§Ã£o](docs/ADOCAO.md) Â· [ReferÃªncias e revisÃ£o Astra](docs/REFERENCIAS.md)
+[Guia completo](https://linnoff88-dev.github.io/ Â· [Arquitetura](docs/ARQUITETURA.md) Â· [Plano de adoÃ§Ã£o](docs/ADOCAO.md) Â· [ReferÃªncias e revisÃ£o Astra](docs/REFERENCIAS.md)
 
 ## Instalar e verificar
 
 ```bash
-git clone https://github.com/inematds/enginebridge.git
+git clone https://github.com/linnoff88-dev/enginebridge.git
 cd enginebridge
 python3 -m venv .venv
 source .venv/bin/activate
@@ -30,7 +30,7 @@ python3 -m unittest discover -s tests -v
 python3 -m enginebridge resolve --project demonstracao --stage roteiro
 ```
 
-Requer Python 3.11+ e PyYAML 6. Os perfis de demonstraÃ§Ã£o usam modelos explÃ­citos e podem ser resolvidos sem login. Os nÃ­veis herdados usam `~/.config/inema/modelos.env`; em outra mÃ¡quina, configure `modelos_env` e os caminhos dos executÃ¡veis no YAML. A resoluÃ§Ã£o nÃ£o verifica a existÃªncia do modelo na assinatura.
+Requer Python 3.11+ e PyYAML 6. Os perfis de demonstraÃ§Ã£o usam modelos explÃ­citos e podem ser resolvidos sem login. Os nÃ­veis herdados usam `~/.config/ARCKHÉ/modelos.env`; em outra mÃ¡quina, configure `modelos_env` e os caminhos dos executÃ¡veis no YAML. A resoluÃ§Ã£o nÃ£o verifica a existÃªncia do modelo na assinatura.
 
 ## Simular a troca sem consumir modelos
 
@@ -48,8 +48,8 @@ Instale Claude Code e Codex, autentique pela assinatura no terminal e ajuste `bi
 ```bash
 codex login
 claude auth login
-mkdir -p ~/.config/inema
-test -f ~/.config/inema/modelos.env || cp config/modelos.example.env ~/.config/inema/modelos.env
+mkdir -p ~/.config/ARCKHÉ
+test -f ~/.config/ARCKHÉ/modelos.env || cp config/modelos.example.env ~/.config/ARCKHÉ/modelos.env
 ```
 
 O exemplo de modelos sÃ³ Ã© copiado se nÃ£o existir configuraÃ§Ã£o central. A etapa `demonstracao/padrao` herda o motor global e permite observar a troca com `prefer`; roteiro e crÃ­tica continuam com perfis fixados.

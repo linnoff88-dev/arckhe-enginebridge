@@ -69,7 +69,7 @@ class Bridge:
         for alt in alternatives:
             profile = profiles.get(alt)
             candidates.append(((profile or {}).get('motor', alt), profile))
-        central = env_file(d.get('modelos_env', '~/.config/inema/modelos.env'))
+        central = env_file(d.get('modelos_env', '~/.config/ARCKHÉ/modelos.env'))
         routes, excluded, seen = [], [], set()
         timeout = global_cfg.get('timeout', 180)
         cooldown = global_cfg.get('cooldown', 300)
@@ -85,7 +85,7 @@ class Bridge:
                 continue
             values = dict(cfg.get('niveis', {}).get(level, {}))
             values.update({k: v for k, v in (profile or {}).items() if k in {'modelo', 'esforco'}})
-            key = f'INEMA_{engine.upper()}_{level.upper()}'
+            key = f'ARCKHÉ_{engine.upper()}_{level.upper()}'
             model = values.get('modelo', central.get(key))
             effort = values.get('esforco', central.get(key + '_EFFORT', ''))
             if not model or not isinstance(model, str) or not isinstance(effort, str):
