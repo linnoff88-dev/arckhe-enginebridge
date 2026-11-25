@@ -24,8 +24,8 @@ def main():
         s.add_argument('--motor', choices=['codex', 'claude'])
         s.add_argument('--nivel', choices=['menor', 'executor', 'topo', 'super'])
         if name == 'run':
-            s.add_argument('--simulate', action='store_true', help='Executores fictícios; não chama modelos')
-            s.add_argument('--fail-first', action='store_true', help='Somente simulação: rejeição de cota no primeiro motor')
+            s.add_argument('--simulate', action='store_true', help='Executores fictícios; nêo chama modelos')
+            s.add_argument('--fail-first', action='store_true', help='Somente simulaçêo: rejeiçêo de cota no primeiro motor')
     sub.add_parser('status')
     for name in ('block', 'unblock'):
         s = sub.add_parser(name)
@@ -61,7 +61,7 @@ def main():
             raw = bridge.config_path.read_text()
             changed, n = re.subn(r'^(  motor_preferido:)[^\n]*$', r'\g<1> ' + args.motor, raw, flags=re.M)
             if n != 1 or yaml.safe_load(changed)['global']['motor_preferido'] != args.motor:
-                raise BridgeError('Edite motor_preferido manualmente; formato fora do padrão')
+                raise BridgeError('Edite motor_preferido manualmente; formato fora do padrêo')
             fd, tmp = tempfile.mkstemp(dir=bridge.config_path.parent)
             try:
                 with os.fdopen(fd, 'w') as f:

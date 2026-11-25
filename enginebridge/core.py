@@ -34,11 +34,11 @@ class Bridge:
         try:
             d = yaml.safe_load(self.config_path.read_text())
         except (OSError, yaml.YAMLError) as e:
-            raise BridgeError('Configuração indisponível ou YAML inválido') from e
+            raise BridgeError('Configuraçêo indisponível ou YAML inválido') from e
         if not isinstance(d, dict) or d.get('version') != 1:
-            raise BridgeError('Configuração exige version: 1')
+            raise BridgeError('Configuraçêo exige version: 1')
         if not isinstance(d.get('motores'), dict) or not isinstance(d.get('global'), dict):
-            raise BridgeError('Configuração exige global e motores')
+            raise BridgeError('Configuraçêo exige global e motores')
         return d
 
     def resolve(self, project, stage, motor=None, nivel=None):
@@ -47,7 +47,7 @@ class Bridge:
             project_cfg = d['projetos'][project]
             step = project_cfg['etapas'][stage]
         except (KeyError, TypeError) as e:
-            raise BridgeError('Projeto ou etapa desconhecidos; não usar padrão silencioso') from e
+            raise BridgeError('Projeto ou etapa desconhecidos; nêo usar padrêo silencioso') from e
         global_cfg = d['global']
         profiles = d.get('perfis', {})
         chosen_profile = profiles.get(step.get('perfil')) if step.get('perfil') else None
@@ -81,7 +81,7 @@ class Bridge:
                 raise BridgeError(f'Motor inexistente: {engine}')
             # Permission/capability gates precede preferences, even for pinned routes.
             if cfg.get('habilitado') is not True or cfg.get('tipo') != 'assinatura' or engine not in {'codex', 'claude'}:
-                excluded.append({'motor': engine, 'motivo': 'desabilitado ou adaptador não autorizado/implementado'})
+                excluded.append({'motor': engine, 'motivo': 'desabilitado ou adaptador nêo autorizado/implementado'})
                 continue
             values = dict(cfg.get('niveis', {}).get(level, {}))
             values.update({k: v for k, v in (profile or {}).items() if k in {'modelo', 'esforco'}})
@@ -92,7 +92,7 @@ class Bridge:
                 raise BridgeError(f'Modelo/esforço inválidos ou ausentes: {engine}/{level}')
             allowed = {'', 'low', 'medium', 'high', 'xhigh'} if engine == 'codex' else {'', 'low', 'medium', 'high', 'max'}
             if effort not in allowed:
-                raise BridgeError(f'Esforço não suportado pelo adaptador {engine}: {effort}')
+                raise BridgeError(f'Esforço nêo suportado pelo adaptador {engine}: {effort}')
             pool = cfg.get('quota_pool')
             if not isinstance(pool, str) or not pool:
                 raise BridgeError('quota_pool explícito obrigatório; modelos da mesma conta compartilham cota')
@@ -108,12 +108,12 @@ class Bridge:
         source = json.dumps(d, sort_keys=True) + json.dumps(central, sort_keys=True)
         return {'version': 1, 'policy_hash': hashlib.sha256(source.encode()).hexdigest(), 'projeto': project, 'etapa': stage, 'nivel': level,
                 'modo': 'texto-sem-ferramentas', 'rotas': routes, 'excluidos': excluded, 'cooldown': cooldown,
-                'origem_modelos': d.get('modelos_env'), 'aviso': 'Resolução local; não verifica saldo, login ou disponibilidade do modelo.'}
+                'origem_modelos': d.get('modelos_env'), 'aviso': 'Resoluçêo local; nêo verifica saldo, login ou disponibilidade do modelo.'}
 
     def execute(self, snapshot, prompt, runner=None, validator=None):
         from .adapters import run_text
         if snapshot.get('modo') != 'texto-sem-ferramentas':
-            raise BridgeError('Somente texto sem ferramentas; efeitos externos exigem integração própria')
+            raise BridgeError('Somente texto sem ferramentas; efeitos externos exigem integraçêo própria')
         runner = runner or run_text
         state = State(self.state_path)
         attempts = []
@@ -125,7 +125,7 @@ class Bridge:
                 continue
             current_home = env_file(current['conta_env']).get('CODEX_HOME') if current.get('conta_env') else None
             if current_home != route.get('codex_home'):
-                raise BridgeError('Conta alterada desde a resolução; resolva um novo trabalho')
+                raise BridgeError('Conta alterada desde a resoluçêo; resolva um novo trabalho')
             owner = state.acquire(route['quota_pool'], route['timeout'] + 30)
             if owner is None:
                 attempts.append({'motor': route['motor'], 'status': 'pool-indisponivel'})
@@ -143,7 +143,7 @@ class Bridge:
                 if code in {'quota', 'rate_limit'} and result.get('sem_execucao') is True:
                     state.cooldown(route['quota_pool'], snapshot['cooldown'])
                     continue
-                raise BridgeError(f'Execução interrompida ({code}); resultado incerto ou erro local, sem repetição automática')
+                raise BridgeError(f'Execuçêo interrompida ({code}); resultado incerto ou erro local, sem repetiçêo automática')
             finally:
                 state.release(route['quota_pool'], owner)
         raise BridgeError('Rotas esgotadas ou suspensas; aguarde ou ajuste a política')

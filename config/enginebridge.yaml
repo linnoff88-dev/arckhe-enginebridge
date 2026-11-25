@@ -25,7 +25,7 @@ motores:
     habilitado: false
     tipo: api
     quota_pool: openrouter-principal
-# Perfil explícito é uma exceção documentada à escolha central.
+# Perfil explícito é uma exceçêo documentada à escolha central.
 perfis:
   codex-principal:
     motor: codex
@@ -52,7 +52,7 @@ projetos:
     etapas:
       explicar:
         nivel: menor
-  # Somente exemplos: ainda não integrados aos projetos reais.
+  # Somente exemplos: ainda nêo integrados aos projetos reais.
   consumidor-python:
     etapas:
       roteiro:
